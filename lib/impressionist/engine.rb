@@ -9,7 +9,11 @@ module Impressionist
 
 
   initializer 'impressionist.controller' do
-    require "impressionist/controllers/mongoid/impressionist_controller.rb" if orm == :mongoid.to_s
+    if orm == :mongoid.to_s
+      require "impressionist/controllers/mongoid/impressionist_controller.rb"
+    else
+      require "impressionist/controllers/impressionist_controller.rb"
+    end 
 
     ActiveSupport.on_load(:action_controller) do
      include ImpressionistController::InstanceMethods
