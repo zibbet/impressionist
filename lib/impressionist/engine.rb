@@ -12,7 +12,7 @@ module Impressionist
     if orm == :mongoid.to_s
       require "impressionist/controllers/mongoid/impressionist_controller.rb"
     else
-      require "impressionist/controllers/impressionist_controller.rb"
+      require "#{root}/app/controllers/impressionist_controller.rb"
     end 
 
     ActiveSupport.on_load(:action_controller) do
